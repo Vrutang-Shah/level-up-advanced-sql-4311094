@@ -1,5 +1,5 @@
-SELECT * FROM employee LIMIT 1;
-SELECT * FROM customer LIMIT 1;
-SELECT * FROM model LIMIT 1;
-SELECT * FROM inventory LIMIT 1;
-SELECT * FROM sales LIMIT 1;
+-- Create a list of employees and their immediate managers.
+
+SELECT e.firstName, e.lastName, e.title, m.firstName AS ManagerFirstName, m.lastName AS ManagerLastName
+FROM employee e
+LEFT JOIN employee m ON e.managerID = m.employeeId;
